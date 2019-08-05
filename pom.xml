@@ -17,7 +17,8 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <spring-boot.version>2.0.4.RELEASE</spring-boot.version>
-        <spring.cloud.k8s.version>0.3.0.RELEASE</spring.cloud.k8s.version>
+        <spring-cloud.version>Finchley.SR1</spring-cloud.version>
+        <spring.cloud.k8s.version>1.0.0.RELEASE</spring.cloud.k8s.version>
     </properties>
 
     <dependencyManagement>
@@ -26,6 +27,20 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-kubernetes-dependencies</artifactId>
+                <version>${spring.cloud.k8s.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -45,6 +60,14 @@
             <!--<groupId>org.springframework.boot</groupId>-->
             <!--<artifactId>spring-boot-devtools</artifactId>-->
         <!--</dependency>-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-kubernetes-discovery</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-kubernetes-config</artifactId>
+        </dependency>
         <dependency>
             <groupId>de.codecentric</groupId>
             <artifactId>spring-boot-admin-starter-client</artifactId>
